@@ -79,6 +79,35 @@ body {
 .top-nav-right a:hover {
     color: var(--primary-color);
 }
+.top-nav-search {
+  display: flex;
+  align-items: center;
+  border-bottom: 1.5px solid var(--primary-color);
+  margin-left: 10px;
+  padding-bottom: 2px;
+}
+
+.top-nav-search input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--black); /* 根據你現有的 nav 文字色設定 */
+  font-size: 14px;
+  width: 160px;
+}
+
+.top-nav-search input::placeholder {
+  color: #ccc;
+}
+
+.top-nav-search button {
+  background: transparent;
+  border: none;
+  color: var(--primary-color);
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 6px;
+}
 
 /* 主導航 */
 .main-nav {
@@ -220,6 +249,12 @@ body {
 .breadcrumb span {
     color: var(--text-color);
     font-weight: 500;
+}
+.breadcrumb-search-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* 控制 breadcrumb 和搜尋之間間距 */
+  margin: 20px 0;
 }
 
 /* ====================================
@@ -449,3 +484,24 @@ body {
     text-align: center;
     padding: 20px 0; /* 可依需要調整 */
 }
+.mock-alert {
+  background: #ffeeba;
+  color: #856404;
+  padding: 8px 16px;
+  text-align: center;
+  font-size: 14px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mock-alert-close {
+  background: transparent;
+  border: none;
+  color: currentColor;
+  margin-left: 10px;
+  cursor: pointer;
+}
+

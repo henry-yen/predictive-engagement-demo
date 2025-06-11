@@ -28,6 +28,10 @@
     <link rel="preload" href="./assets/js/main.js" as="script">
 </head>
 <body>
+    <div class="mock-alert">
+  ⚠️ 溫馨提醒：本頁面僅為示意／開發測試用，不代表正式上線內容，請勿當作真實操作流程。
+  <button class="mock-alert-close">✕</button>
+    </div>
     <!-- Header -->
     <header class="header">
         <!-- Top Navigation -->
@@ -40,11 +44,11 @@
                     <a href="#">ESG永續金融</a>
                     <a href="#">關於華厚</a>
                 </div>
-                <div class="top-nav-right">
-                    <a href="#">智能客服</a>
-                    <a href="#">服務據點</a>
-                    <a href="#">EN</a>
-                    <a href="#">簡中版</a>
+                <div class="top-nav-right"onsubmit="sendSearchEvent(event)">
+                      <form class="top-nav-search" action="#" method="get">
+                        <input type="text" placeholder="問我任何問題…" aria-label="搜尋">
+                        <button type="submit">🔍</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -80,11 +84,11 @@
     </header>
 
     <!-- Breadcrumb -->
+     <!-- Breadcrumb -->
     <nav class="breadcrumb">
         <div class="container">
             <a href="#">首頁</a> > <a href="#">個人金融</a> > <span>貸款</span>
         </div>
-    </nav>
 
     <!-- Main Content -->
     <main class="main-content">
