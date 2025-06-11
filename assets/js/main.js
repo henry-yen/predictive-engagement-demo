@@ -1,21 +1,23 @@
 function sendSearchEvent(event) {
-    event.preventDefault(); // 防止頁面重新載入
-    const keyword = document.getElementById("site-search").value.trim();
+  event.preventDefault(); // 阻止表單重新整理
+  
+  const form = event.target;
+  const input = form.querySelector('input[type="text"]');
+  const keyword = input?.value?.trim();
 
-    if (!keyword) return;
+  if (!keyword) return;
 
-    // 傳送到 Genesys Predictive Engagement
-    if (window._genesysJs) {
-      window._genesysJs("command", "Journey.sendCustomEvent", {
-        eventName: "searchInput",
-        customAttributes: {
-          keyword: keyword
-        }
-      });
-    }
-
-    console.log("已送出搜尋字詞給 Genesys:", keyword);
+  if (window._genesysJs) {
+    window._genesysJs("command", "Journey.sendCustomEvent", {
+      eventName: "searchInput",
+      customAttributes: {
+        keyword: keyword
+      }
+    });
   }
+
+  console.log("已送出搜尋字詞給 Genesys:", keyword);
+}
 
         // 響應式導航選單
         function toggleMobileMenu() {

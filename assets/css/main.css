@@ -169,6 +169,26 @@ body {
     height: 2px;
     background-color: var(--primary-color);
 }
+.mock-alert {
+  background: #ffeeba;
+  color: #856404;
+  padding: 8px 16px;
+  text-align: center;
+  font-size: 14px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mock-alert-close {
+  background: transparent;
+  border: none;
+  color: currentColor;
+  margin-left: 10px;
+  cursor: pointer;
+}
 
 /* 導航按鈕 */
 .nav-actions {
@@ -484,24 +504,5 @@ body {
     text-align: center;
     padding: 20px 0; /* 可依需要調整 */
 }
-.mock-alert {
-  background: #ffeeba;
-  color: #856404;
-  padding: 8px 16px;
-  text-align: center;
-  font-size: 14px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.mock-alert-close {
-  background: transparent;
-  border: none;
-  color: currentColor;
-  margin-left: 10px;
-  cursor: pointer;
-}
+
 
