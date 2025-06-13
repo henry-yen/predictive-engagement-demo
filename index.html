@@ -170,16 +170,40 @@
 </footer>
 
 
-    <!-- JavaScript Files -->
-     <script>
-  (function(a,t,c,l,o,u,d){a['_genesysJourneySdk']=o;a[o]=a[o]||function(){
-  (a[o].q=a[o].q||[]).push(arguments)},a[o].l=1*new Date();u=t.createElement(c),
-  d=t.getElementsByTagName(c)[0];u.async=1;u.src=l;u.charset='utf-8';d.parentNode.insertBefore(u,d)
+    <!-- Genesys Journey SDK -->
+<script>
+  (function(a,t,c,l,o,u,d){
+    a['_genesysJourneySdk']=o;
+    a[o]=a[o]||function(){ (a[o].q=a[o].q||[]).push(arguments) };
+    a[o].l=1*new Date();
+    u=t.createElement(c), d=t.getElementsByTagName(c)[0];
+    u.async=1; u.src=l; u.charset='utf-8';
+    d.parentNode.insertBefore(u,d)
   })(window, document, 'script', 'https://apps.mypurecloud.jp/journey/sdk/js/web/v1/ac.js', 'ac');
+
+  // 初始化 Journey
   ac('init', '2742beb0-8b04-4102-a495-53919c8b4ff4', { region: 'apne1' });
-  ac('pageview');
-    </script>
-    
+</script>
+
+<!-- Genesys Web Messenger SDK -->
+<script>
+  (function (g, e, n, es, ys) {
+    g['_genesysJs'] = e;
+    g[e] = g[e] || function () {
+      (g[e].q = g[e].q || []).push(arguments)
+    };
+    g[e].t = 1 * new Date();
+    g[e].c = es;
+    ys = document.createElement('script'); ys.async = 1;
+    ys.src = n; ys.charset = 'utf-8';
+    document.head.appendChild(ys);
+  })(window, 'Genesys', 'https://apps.mypurecloud.jp/genesys-bootstrap/genesys.min.js', {
+    environment: 'prod-apne1',
+    deploymentId: '55b977a6-5a9a-4548-b2bb-f7485763eb14'
+  });
+</script>
+
+
     <script src="./assets/js/main.js" defer></script>
 </body>
 </html>
