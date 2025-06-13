@@ -3,22 +3,28 @@ function sendSearchEvent(event) {
 
   const form = event.target;
   const input = form.querySelector('input[type="text"]');
-
-  if (!input) {
-    console.warn("找不到 input 元素");
-    return;
-  }
+  if (!input) return;
 
   const keyword = input.value.trim();
   if (!keyword) return;
 
   if (typeof ac === "function") {
-    ac('record', 'Search query', { query: keyword });
-    console.log("已送出搜尋字詞給 Genesys Journey:", keyword);
+    // 發送預設 Search query 事件（會觸發 Segments）
+    ac('record', 'Search query', {
+      query: keyword
+    });
+
+    // 發送自定義事件（可用於追蹤使用者意圖、建立 trigger、dashboard 分析）
+    ac('record', 'searchInput', {
+      keyword: keyword
+    });
+
+    console.log("✅ 已送出：Search query + searchInput", keyword);
   } else {
-    console.warn("Genesys Journey SDK 尚未載入");
+    console.warn("⚠️ Genesys Journey SDK 尚未載入");
   }
 }
+
 
 
 
