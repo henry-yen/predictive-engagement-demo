@@ -1,29 +1,34 @@
 function sendSearchEvent(event) {
-  event.preventDefault(); // 阻止表單重新整理
-  
+  event.preventDefault();
+
   const form = event.target;
   const input = form.querySelector('input[type="text"]');
-  const keyword = input?.value?.trim();
 
-  if (!keyword) return;
-
-  if (window._genesysJs) {
-    window._genesysJs("command", "Journey.sendCustomEvent", {
-      eventName: "searchInput",
-      customAttributes: {
-        keyword: keyword
-      }
-    });
+  if (!input) {
+    console.warn("找不到 input 元素");
+    return;
   }
 
-  console.log("已送出搜尋字詞給 Genesys:", keyword);
+  const keyword = input.value.trim();
+  if (!keyword) return;
+
+  if (typeof ac === "function") {
+    ac('record', 'searchInput', { keyword: keyword });
+    console.log("已送出搜尋字詞給 Genesys Journey:", keyword);
+  } else {
+    console.warn("Genesys Journey SDK 尚未載入");
+  }
 }
 
+
+
+
         // 響應式導航選單
-        function toggleMobileMenu() {
-            const navMenu = document.querySelector('.nav-menu');
-            navMenu.style.display = navMenu.style.display === 'block' ? 'none' : 'block';
-        }
+function toggleMobileMenu() {
+    const navMenu = document.querySelector('.nav-menu');
+    navMenu.style.display = navMenu.style.display === 'block' ? 'none' : 'block';
+    }
+
 (function (g, e, n, es, ys) {
     g['_genesysJs'] = e;
     g[e] = g[e] || function () {
