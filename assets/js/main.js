@@ -13,7 +13,7 @@ function sendSearchEvent(event) {
   if (!keyword) return;
 
   if (typeof ac === "function") {
-    ac('record', 'searchInput', { keyword: keyword });
+    ac('record', 'Search query', { query: keyword });
     console.log("已送出搜尋字詞給 Genesys Journey:", keyword);
   } else {
     console.warn("Genesys Journey SDK 尚未載入");
