@@ -354,100 +354,116 @@ body {
    服務區域
    ====================================*/
 
-.services-section h2 {
-    font-size: 32px;
-    color: var(--primary-color);
-    text-align: center;
-    margin-bottom: 50px;
-    position: relative;
+.services {
+    padding: 60px 0;
+    background-color: #f8f9fa;
 }
 
-.services-section h2::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-    border-radius: 2px;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.services h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 50px;
+    font-weight: 700;
 }
 
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
-    margin-bottom: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .service-card {
-    background: var(--white);
-    border: 2px solid #e8f5f4;
-    border-radius: var(--border-radius-lg);
-    padding: 40px 20px;
+    background: white;
+    padding: 40px 30px;
+    border-radius: 20px;
     text-align: center;
-    transition: var(--transition);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
-    position: relative;
-    overflow: hidden;
-}
-
-.service-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(32, 178, 170, 0.1), transparent);
-    transition: left 0.5s;
-}
-
-.service-card:hover::before {
-    left: 100%;
 }
 
 .service-card:hover {
-    border-color: var(--primary-color);
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(32, 178, 170, 0.15);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
 
 .service-icon {
-    width: 60px;
-    height: 60px;
-    margin: 0 auto 20px;
+    margin-bottom: 25px;
     display: flex;
-    align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    transition: var(--transition);
+    align-items: center;
 }
 
-.service-card:hover .service-icon {
-    transform: scale(1.1) rotate(5deg);
-}
-
-.service-icon img {
-    width: 30px;
-    height: 30px;
-    filter: brightness(0) invert(1);
+.emoji-icon {
+    font-size: 3.5rem;
+    line-height: 1;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
 }
 
 .service-card h3 {
-    color: var(--primary-color);
-    font-size: 18px;
+    font-size: 1.3rem;
+    color: #2c3e50;
+    margin: 0;
     font-weight: 600;
-    margin-top: 15px;
-    transition: var(--transition);
+    line-height: 1.4;
 }
 
-.service-card:hover h3 {
-    color: var(--primary-hover);
+@media (max-width: 768px) {
+    .services {
+        padding: 40px 0;
+    }
+    
+    .services h2 {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+    
+    .services-grid {
+        gap: 25px;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    
+    .service-card {
+        padding: 30px 20px;
+    }
+    
+    .emoji-icon {
+        font-size: 3rem;
+    }
+    
+    .service-card h3 {
+        font-size: 1.2rem;
+    }
 }
 
+/* 針對較小的項目調整 */
+@media (max-width: 480px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    
+    .service-card {
+        padding: 25px 15px;
+    }
+    
+    .emoji-icon {
+        font-size: 2.5rem;
+    }
+    
+    .service-card h3 {
+        font-size: 1.1rem;
+    }
+}
 /* ====================================
    Footer 樣式
    ====================================*/
